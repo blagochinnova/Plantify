@@ -1,0 +1,169 @@
+/* ===== HERO ===== */
+.hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 32px;
+    background-color: var(--bg-accent);
+    align-items: center;
+    padding: 44px 0;
+}
+
+.hero .hero-text h1 {
+    font-size: clamp(1.8rem, 7vw, 3rem);
+    text-align: center;
+    line-height: 1.1;
+    color: var(--accent);
+}
+
+.hero .hero-text p {
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    text-align: center;
+    color: var(--muted);
+}
+
+.hero img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ===== PREV CATALOG ===== */
+.prev-catalog {
+    padding: 40px 0;
+}
+
+.prev-catalog h2 {
+    text-align: center;
+    color: var(--accent);
+    font-size: clamp(1.2rem, 5vw, 2rem);
+    padding-bottom: 15px;
+}
+
+/* ===== CATALOG GRID ===== */
+.catalog-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    padding: 10px 15px;
+}
+.catalog-grid::-webkit-scrollbar {
+    display: none;
+}
+.catalog-grid .product-card {
+    min-width: 220px;
+    flex-shrink: 0;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 12px;
+    transition: transform 0.3s ease;
+}
+
+.catalog-grid .product-card:hover {
+    transform: translateY(-4px);
+}
+
+.catalog-grid .product-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.catalog-grid .product-card h3 {
+    font-size: 1rem;
+    margin: 10px 0 6px;
+    color: var(--accent);
+}
+
+.catalog-grid .product-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.catalog-grid .product-card .price {
+    font-weight: 600;
+    color: var(--text);
+}
+/* ===== CATALOG BUTTON ===== */
+.catalog-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.catalog-btn a {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: var(--text-light);
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.catalog-btn a:hover {
+    filter: brightness(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.catalog-btn a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* ===== ABOUT ===== */
+.about {
+    padding: 30px 20px;
+    text-align: center;
+    background-color: var(--bg);
+}
+
+.about h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.about p {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+/* ===== SECTION SPACING (optional) ===== */
+section {
+    padding: 40px 15px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero img {
+        margin: 0 auto;
+        max-width: 80%;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about h2 {
+        font-size: 1.6rem;
+    }
+
+    .catalog-btn a {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+}

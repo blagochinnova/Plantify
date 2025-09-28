@@ -1,0 +1,61 @@
+/* ХЕДЕР ДЛЯ КАТАЛОГА */
+.catalog-header {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    padding: 12px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.catalog-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    font-size: 0.95rem;
+    color: #f1f1e9;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover,
+.logo:hover {
+    color: #f1f1e9;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f1f1e9;
+    transition: all 0.3s ease;
+}
+
+.basket-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f1f1e9;
+    color: var(--accent);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.basket-button i {
+    font-size: 1.1rem;
+}
+
+.basket-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: var(--accent-2);
+    color: #f1f1e9;
+}

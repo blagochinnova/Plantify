@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Language" content="uk" />
+        <title>Каталог | Plantify</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+        <link rel="stylesheet" href="./assets/css/variables.css">
+        <link rel="stylesheet" href="./assets/css/main.css">
+        <link rel="stylesheet" href="./assets/css/header-default.css">
+        <link rel="stylesheet" href="./assets/css/category.css">
+        <link rel="stylesheet" href="./assets/css/catalog.css">
+        <link rel="stylesheet" href="./assets/css/footer.css">
+    </head>
+
+    <body>
+        <main>
+            <section class="hero-catalog">
+                <div class="hero-text">
+                    <h1>Каталог</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </div>
+            </section>
+            <div class="container">
+                <section class="product-category">
+                    <h2>Асортимент нашого розсадника</h2>
+                    <div class="category-grid"></div>
+                </section>
+                <section class="catalog container">
+                    <div class="catalog-controls">
+                        <button id="show-all" class="show-all-btn" style="display: none">
+                            Показати всі товари
+                        </button>
+                    </div>
+                    <h2 class="active-category-title"></h2>
+                    <div class="catalog-grid"></div>
+
+                    <!-- <div class="pagination">
+            <a href="#" class="page prev">«</a>
+            <a href="#" class="page active">1</a>
+            <a href="#" class="page">2</a>
+            <a href="#" class="page">3</a>
+            <a href="#" class="page next">»</a>
+          </div> -->
+                </section>
+            </div>
+        </main>
+        <script type="module" src="./assets/js/catalog.js"></script>
+    </body>
+
+</html>
