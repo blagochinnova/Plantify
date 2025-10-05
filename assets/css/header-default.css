@@ -11,8 +11,8 @@
     align-items: center;
     gap: 16px;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    white-space: nowrap;
+    /* overflow-x: auto;
+    white-space: nowrap; */
 }
 
 .contact-link {
