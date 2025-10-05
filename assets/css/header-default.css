@@ -10,7 +10,9 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .contact-link {
@@ -58,4 +60,20 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     background-color: var(--accent-2);
     color: #f1f1e9;
+}
+@media (max-width: 768px) {
+    .basket-button {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+        padding: 6px 10px;
+        gap: 6px;
+    }
+    .basket-button i {
+        font-size: clamp(0.9rem, 3vw, 1rem);
+    }
+    .logo {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+    .contact-link {
+        font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+    }
 }

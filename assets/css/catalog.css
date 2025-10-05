@@ -1,7 +1,7 @@
 /* === HERO === */
 .hero-catalog {
     background-color: #f1f1e9;
-    padding: 40px 20px;
+    padding: clamp(20px, 5vw, 40px) clamp(10px, 5vw, 20px);
     text-align: center;
 }
 
@@ -20,7 +20,7 @@
 /* === CATALOG GRID === */
 .catalog .catalog-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     /* базово для мобільних */
     gap: 20px;
     margin-bottom: 30px;
@@ -31,13 +31,15 @@
     margin: 0 0 12px;
     font-weight: 700;
     text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
+/* === ACTIVE CATEGORY TITLE === */
 .active-category-title {
     font-size: clamp(1.6rem, 4vw, 2.2rem);
     font-weight: 700;
     color: var(--accent);
     text-align: center;
-    margin: 30px 0 20px;
+    margin: clamp(20px, 5vw, 30px) 0 clamp(16px, 4vw, 20px);
     position: relative;
 }
 /* === PRODUCT CARD === */
@@ -58,23 +60,23 @@
 
 .product-card img {
     width: 100%;
-    height: 220px;
+    height: clamp(140px, 30vw, 200px);
     object-fit: cover;
     background: #eef3f0;
     border-bottom: 1px solid var(--border);
 }
 
 .product-card h3 {
-    margin: 14px 16px 10px;
+    margin: 10px 12px 6px;
     font-weight: 700;
     text-align: center;
     color: var(--accent);
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
 .product-card p {
-    margin: 0 16px 10px;
-    font-size: 0.95rem;
+    margin: 0 12px 8px;
+    font-size: clamp(0.8rem, 1.8vw, 0.95rem);
     color: var(--muted);
     text-align: center;
 }
@@ -82,16 +84,17 @@
 .product-card .price {
     font-weight: 700;
     color: var(--muted);
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 2vw, 1rem);
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 /* === MORE BUTTON === */
-.more-btn {
+.more-btn,
+.show-all-btn {
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
     color: #f1f1e9;
-    padding: 8px 14px;
+    padding: clamp(6px, 2vw, 8px) clamp(12px, 4vw, 14px);
     border-radius: 15px;
     border: 1px solid var(--border);
     font-weight: 600;
@@ -101,9 +104,11 @@
     transition: all 0.3s ease;
     display: inline-block;
     width: fit-content;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
 
-.more-btn:hover {
+.more-btn:hover,
+.show-all-btn:hover {
     filter: brightness(1.05);
     transform: translateY(-2px);
 }
@@ -115,19 +120,24 @@
 }
 
 /* === RESPONSIVE GRID === */
-@media (max-width: 599px) {
+@media (max-width: 479px) {
+    .catalog .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media (min-width: 480px) and (max-width: 767px) {
     .catalog .catalog-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (min-width: 600px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1023px) {
     .catalog .catalog-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
     .catalog .catalog-grid {
         grid-template-columns: repeat(4, 1fr);
     }

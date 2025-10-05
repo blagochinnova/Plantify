@@ -34,38 +34,35 @@
 
     
         <section class="checkout-form hidden">
-            <section class="checkout-form hidden">
-                <h3>Оформлення замовлення</h3>
-                <form id="order-form">
-                    <input type="text" name="surname" placeholder="Прізвище *" required />
-                    <input type="text" name="name" placeholder="Ім’я *" required />
-                    <input type="text" name="patronymic" placeholder="По батькові" />
-                    <input type="tel" name="phone" placeholder="Телефон *" required />
-                    <input type="email" name="email" placeholder="Email (необов’язково)" />
-            
-                    <select name="delivery" id="delivery-method" required>
-                        <option value="">Оберіть службу доставки</option>
-                        <option value="nova-poshta">Нова Пошта</option>
-                        <option value="ukr-poshta">Укрпошта</option>
-                    </select>
-            
-                    <select name="region" id="region-select" required>
-                        <option value="">Оберіть область</option>
-                    </select>
-            
-                    <select name="city" id="city-select" required>
-                        <option value="">Оберіть населений пункт</option>
-                    </select>
-            
-                    <select name="office" id="office-select" required>
-                        <option value="">Оберіть відділення</option>
-                    </select>
-            
-                    <textarea name="comment" placeholder="Коментар до замовлення"></textarea>
-                    <button type="submit">Оформити замовлення</button>
-                </form>
-            </section>
-
+            <h3>Оформлення замовлення</h3>
+            <form id="order-form">
+                <input type="text" name="surname" placeholder="Прізвище *" required />
+                <input type="text" name="name" placeholder="Ім’я *" required />
+                <input type="text" name="patronymic" placeholder="По батькові" />
+                <input type="tel" name="phone" placeholder="Телефон *" required />
+                <input type="email" name="email" placeholder="Email (необов’язково)" />
+        
+                <select name="delivery" id="delivery-method" required>
+                    <option value="">Оберіть службу доставки</option>
+                    <option value="nova-poshta">Нова Пошта</option>
+                    <option value="ukr-poshta">Укрпошта</option>
+                </select>
+        
+                <select name="region" id="region-select" required>
+                    <option value="">Оберіть область</option>
+                </select>
+        
+                <select name="city" id="city-select" required>
+                    <option value="">Оберіть населений пункт</option>
+                </select>
+        
+                <select name="office" id="office-select" required>
+                    <option value="">Оберіть відділення</option>
+                </select>
+        
+                <textarea name="comment" placeholder="Коментар до замовлення"></textarea>
+                <button type="submit">Оформити замовлення</button>
+            </form>
         </section>
     </main>
     <script type="module" src="./assets/js/cart.js"></script>

@@ -76,7 +76,7 @@ img {
 }
 
 /* ===== Buttons ===== */
-button,
+/* button,
 .card-btn {
     font: inherit;
     background-color: var(--accent);
@@ -86,19 +86,19 @@ button,
     border-radius: var(--radius);
     cursor: pointer;
     transition: background 0.3s ease;
-}
+} */
 
-button:hover,
+/* button:hover,
 .card-btn:hover {
     background-color: var(--accent-2);
-}
+} */
 
 /* ===== Accessibility ===== */
-a:focus-visible,
+/* a:focus-visible,
 button:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
-}
+} */
 
 /* ===== Utility Classes ===== */
 .text-center {

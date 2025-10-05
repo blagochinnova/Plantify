@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмінка</title>
+    <link rel="stylesheet" href="./assets/css/admin.css">
+</head>
+<body>
+    <main class="admin-panel">
+        <h2>Адмін-панель</h2>
+        <div class="admin-actions">
+            <button id="add-product-btn">➕ Додати товар</button>
+            <button id="edit-product-btn">✏️ Редагувати товари</button>
+            <button id="delete-product-btn">🗑️ Видалити товари</button>
+        </div>
+        <section id="add-product-form" class="hidden">
+            <h3>Новий товар</h3>
+            <form id="product-form">
+                <input type="text" name="name" placeholder="Назва товару" required>
+                <textarea name="description" placeholder="Опис товару"></textarea>
+                <input type="number" name="price" placeholder="Ціна (грн)" required>
+                <select name="category" required>
+                    <option value="">Оберіть категорію</option>
+                    <option value="strawberry">Полуниця</option>
+                    <option value="grapes">Виноград</option>
+                    <option value="currant">Смородина</option>
+                    <option value="raspberry">Малина</option>
+                    <option value="blackberry">Ожина</option>
+                </select>
+                <input type="file" name="image" id="image-upload" accept="image/*" required>
+                <button type="submit">Зберегти</button>
+            </form>
+        </section>
+    
+        <section id="edit-products" class="hidden">
+            <h3>Редагування товарів</h3>
+            <div class="product-list"></div>
+        </section>
+        <section id="delete-products" class="hidden">
+            <h3>Видалення товарів</h3>
+            <div class="product-list"></div>
+        </section>
+    <button onclick="downloadJSON(JSON.parse(localStorage.getItem('products')))">
+        💾 Експортувати products.json
+    </button>
+    </main>
+    <script type="module" src="/assets/js/admin.js"></script>
+</body>
+</html>

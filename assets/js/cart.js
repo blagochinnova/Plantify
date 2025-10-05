@@ -1,12 +1,12 @@
 import { updateCartCount } from "./cart-utils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== Вставка хедера =====
+  // ===== Вставка хедера з окремого HTML-файлу =====
   fetch("components/header-default.html")
     .then((res) => res.text())
     .then((html) => {
       document.body.insertAdjacentHTML("afterbegin", html);
-      updateCartCount();
+      updateCartCount(); // Оновлення лічильника товарів у хедері
     });
 
   // ===== Вставка футера =====
@@ -16,49 +16,83 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.insertAdjacentHTML("beforeend", html);
     });
 
-  // ===== Вивід товарів у кошику =====
+  // ===== DOM-елементи =====
   const container = document.querySelector(".cart-items");
   const totalEl = document.getElementById("cart-total");
 
+  // ===== Рендер кошика =====
   function renderCart() {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     container.innerHTML = "";
     let total = 0;
 
+    // Створення карток товарів
     cart.forEach((item, index) => {
       total += item.price * item.quantity;
 
       const card = document.createElement("div");
       card.className = "cart-item";
+      card.setAttribute("data-index", index);
       card.innerHTML = `
         <img src="${item.image}" alt="${item.name}" />
         <div class="cart-info">
           <h4>${item.name}</h4>
-          <p>Кількість: ${item.quantity}</p>
+          <p>${item.description || ""}</p>
+          <div class="quantity-control">
+            <button class="decrease" data-index="${index}">–</button>
+            <span>${item.quantity}</span>
+            <button class="increase" data-index="${index}">+</button>
+          </div>
           <p>Ціна: ${item.price} грн</p>
           <p>Сума: ${item.price * item.quantity} грн</p>
-          <button class="remove-btn" data-index="${index}">🗑️ Видалити</button>
         </div>
+        <button class="remove-btn" data-index="${index}">&times;</button>
       `;
       container.appendChild(card);
     });
 
     totalEl.textContent = `${total} грн`;
+    updateCartCount();
+    renderSummary(); // Оновлення блоку “Ваше замовлення”
 
-    // ===== Обробка кнопок “Видалити” =====
+    // ===== Видалення товару з анімацією =====
     document.querySelectorAll(".remove-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const index = parseInt(btn.dataset.index, 10);
-        cart.splice(index, 1);
+        const itemEl = btn.closest(".cart-item");
+        itemEl.classList.add("fade-out"); // Анімація зникнення
+        setTimeout(() => {
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart(); // Повторний рендер після видалення
+        }, 300);
+      });
+    });
+
+    // ===== Збільшення кількості товару =====
+    document.querySelectorAll(".increase").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const index = parseInt(btn.dataset.index, 10);
+        cart[index].quantity += 1;
         localStorage.setItem("cart", JSON.stringify(cart));
-        updateCartCount();
         renderCart();
-        renderSummary();
+      });
+    });
+
+    // ===== Зменшення кількості товару =====
+    document.querySelectorAll(".decrease").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const index = parseInt(btn.dataset.index, 10);
+        if (cart[index].quantity > 1) {
+          cart[index].quantity -= 1;
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        }
       });
     });
   }
 
-  // ===== Підсумковий блок “Ваше замовлення” =====
+  // ===== Рендер блоку “Ваше замовлення” (aside) =====
   function renderSummary() {
     const summaryContainer = document.querySelector(".summary-items");
     const summaryTotal = document.getElementById("summary-total");
@@ -85,16 +119,16 @@ document.addEventListener("DOMContentLoaded", () => {
     summaryTotal.textContent = `${total} грн`;
   }
 
+  // ===== Ініціалізація кошика при завантаженні =====
   renderCart();
-  renderSummary();
 
-  // ===== Відкриття форми замовлення =====
+  // ===== Відкриття форми оформлення замовлення =====
   document.getElementById("checkout-btn").addEventListener("click", () => {
     document.querySelector(".checkout-form").classList.remove("hidden");
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   });
 
-  // ===== Форма замовлення =====
+  // ===== Динамічне заповнення форми доставки =====
   const form = document.getElementById("order-form");
 
   const deliveryData = {
@@ -124,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  // ===== Заповнення областей при виборі служби доставки =====
   form.delivery.addEventListener("change", () => {
     const method = form.delivery.value;
     const regions = Object.keys(deliveryData[method].regions);
@@ -140,6 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.office.innerHTML = `<option value="">Оберіть відділення</option>`;
   });
 
+  // ===== Заповнення міст при виборі області =====
   form.region.addEventListener("change", () => {
     const method = form.delivery.value;
     const cities = deliveryData[method].regions[form.region.value];
@@ -155,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.office.innerHTML = `<option value="">Оберіть відділення</option>`;
   });
 
+  // ===== Заповнення відділень при виборі міста =====
   form.city.addEventListener("change", () => {
     const method = form.delivery.value;
     const offices = deliveryData[method].offices[form.city.value];
@@ -168,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // ===== Обробка форми замовлення =====
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form).entries());
@@ -180,6 +218,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartCount();
     renderCart();
     renderSummary();
-    window.location.href = "index.html";
+    window.location.href = "index.html"; // Повернення на головну
   });
 });

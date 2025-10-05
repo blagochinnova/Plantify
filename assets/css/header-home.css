@@ -14,17 +14,19 @@
     align-items: center;
     padding: 10px 16px;
     border-radius: var(--radius);
+    gap: 10px;
 }
 
 .top-header .socials {
     display: flex;
-    gap: 25px;
-    font-size: 30px;
+    gap: 20px;
+    font-size: 28px;
 }
 
 .top-header .contact a,
 .top-header .socials a {
     color: #f1f1e9;
+    transition: color 0.3s ease;
 }
 
 .top-header .contact a:hover {
@@ -67,6 +69,7 @@
     text-transform: capitalize;
     color: var(--accent);
     margin: 0;
+    font-size: 1.5rem;
 }
 
 /* ===== Навігація ===== */
@@ -87,6 +90,7 @@
     font-size: var(--nav-size);
     padding: 6px 8px;
     border-radius: 6px;
+    transition: color 0.3s ease;
 }
 
 .header-nav ul li a:hover {
@@ -97,6 +101,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    gap: 10px;
 }
 
 /* ===== Бургер ===== */
@@ -172,8 +177,13 @@
 @media (max-width: 768px) {
     .burger {
         display: flex;
+        width: 24px;
+            height: 24px;
     }
-
+.burger span {
+    height: 2px;
+    background: #145426;
+}
     .header-nav {
         position: absolute;
         top: 100%;
@@ -204,12 +214,62 @@
     }
 
     .bottom-header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+    .logo-container {
+        flex-shrink: 1;
     }
 
     .header-info {
-        width: 100%;
-        justify-content: flex-start;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+    .logo-title {
+        font-size: 1.2rem;
+    }
+    .basket-button {
+        padding: 8px 12px;
+            font-size: clamp(12px, 3vw, 14px);
+    }
+}
+@media (max-width: 480px) {
+    .top-header {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+        .top-header::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari */
+        }
+
+    .top-header .socials {
+        font-size: clamp(18px, 5vw, 24px);
+            gap: clamp(10px, 4vw, 16px);
+    }
+        .top-header .contact a {
+            font-size: clamp(12px, 4vw, 16px);
+        }
+    .logo-icon {
+        font-size: 28px;
+    }
+    .logo-container a {
+        font-size: 1.1rem;
+    }
+    .header-nav {
+        padding: 16px;
+    }
+    .header-nav ul {
+        gap: 12px;
     }
 }

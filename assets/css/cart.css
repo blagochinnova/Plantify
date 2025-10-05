@@ -1,137 +1,231 @@
+/* === Загальна сітка сторінки === */
+.cart-page {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: clamp(1rem, 4vw, 2rem);
+    padding: clamp(1rem, 5vw, 2rem);
+    background-color: #fdfdfd;
+}
+
+@media (max-width: 768px) {
+    .cart-page {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== Картка товару ===== */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: clamp(1rem, 4vw, 2rem);
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.cart-item img {
+    width: clamp(50px, 10vw, 60px);
+    height: clamp(50px, 10vw, 60px);
+    object-fit: cover;
+    border-radius: 6px;
+}
+.cart-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.25rem;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+.cart-info h4 {
+    margin: 0;
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    font-weight: 500;
+    color: var(--text);
+}
+.cart-info p {
+    margin: 0;
+    font-size: clamp(0.8rem, 2vw, 0.85rem);
+    color: var(--muted);
+}
+.quantity-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.quantity-control button {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    font-size: clamp(0.8rem, 2vw, 0.85rem);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.quantity-control span {
+    min-width: 24px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--text);
+    font-size: clamp(0.8rem, 2vw, 0.85rem);
+}
+.remove-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #999;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.remove-btn:hover {
+   transform: rotate(90deg);
+   color: var(--accent);
+}
+.card-item.fade-out {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 .cart-summary {
-    margin-top: 30px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+margin-top: 2rem;
 }
-
 .cart-summary p {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: #333;
+margin-bottom: 1rem;
+color: var(--muted);
 }
-
 .cart-buttons {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
-
 .cart-buttons a,
 .cart-buttons button {
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    padding: clamp(0.6rem, 2vw, 0.75rem);
+    border-radius: 4px;
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    text-align: center;
 }
+
 
 .back-btn {
-    background-color: #e0e0e0;
-    color: #333;
+    background: #f1f1e9;
+    color: var(--accent);
     text-decoration: none;
+    transition: all 0.3s ease;
 }
-
 .back-btn:hover {
-    background-color: #d5d5d5;
+    transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        background-color: var(--accent-2);
+        color: #f1f1e9;
 }
-
 #checkout-btn {
-    background-color: var(--accent, #4caf50);
-    color: white;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #f1f1e9;
+    border: none;
+    position: sticky;
+    bottom: 1rem;
+    z-index: 10;
+    transition: all 0.3s ease;
 }
-
 #checkout-btn:hover {
-    background-color: var(--accent-hover, #388e3c);
+    transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* === Блок замовлення (aside) === */
 .order-summary {
     position: sticky;
-    top: 20px;
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    height: fit-content;
+    top: 1rem;
+    background: #fff;
+    padding: clamp(1rem, 4vw, 1.5rem);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .order-summary h4 {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
+    font-size: clamp(1rem, 3vw, 1.1rem);
     color: #333;
 }
 
-.summary-items {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
-.summary-items .item {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-}
-
-.summary-items .item img {
-    width: 64px;
-    height: 64px;
+.item img {
+    width: clamp(30px, 8vw, 40px);
+    height: clamp(30px, 8vw, 40px);
     object-fit: cover;
-    border-radius: 8px;
-    border: 1px solid #eee;
+    border-radius: 4px;
+}
+.item-info div {
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
+    color: var(--muted);
+}
+.item-info small {
+    font-size: clamp(0.75rem, 2vw, 0.8rem);
+    color: var(--text);
 }
 
-.summary-items .item-info {
-    flex: 1;
-    font-size: 0.95rem;
-    color: #444;
-}
-
-.summary-items .item-info small {
-    display: block;
-    margin-top: 4px;
-    color: #777;
-}
 
 .summary-total {
-    margin-top: 24px;
-    font-size: 1.1rem;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
-    color: #222;
-}
-@media (max-width: 768px) {
-    .cart-page {
-        display: block;
-        padding: 20px;
-    }
-
-    .order-summary {
-        position: sticky;
-        top: 0;
-        margin-bottom: 20px;
-        border-radius: 0;
-        box-shadow: none;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-        background-color: #fafafa;
-    }
-
-    .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .cart-item img {
-        width: 100%;
-        height: auto;
-    }
-
-    .cart-buttons {
-        flex-direction: column;
-    }
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    color: #333;
 }
 
+/* === Форма доставки === */
+.checkout-form {
+    margin-top: 2rem;
+    padding: clamp(1rem, 5vw, 1.5rem);
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: clamp(0.6rem, 2vw, 0.75rem);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+}
+
+.checkout-form button[type="submit"] {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    color: #f1f1e9;
+    padding: clamp(0.6rem, 2vw, 0.75rem);
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+}
