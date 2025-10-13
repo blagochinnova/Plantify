@@ -129,57 +129,98 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===== Динамічне заповнення форми доставки =====
+
+  // const deliveryData = {
+  //   "nova-poshta": {
+  //     regions: {
+  //       Київська: ["Боярка", "Вишневе"],
+  //       Львівська: ["Львів", "Дрогобич"],
+  //     },
+  //     offices: {
+  //       Боярка: ["Відділення №1", "Відділення №2"],
+  //       Вишневе: ["Відділення №1"],
+  //       Львів: ["Відділення №1", "Поштомат №3"],
+  //       Дрогобич: ["Відділення №1"],
+  //     },
+  //   },
+  //   "ukr-poshta": {
+  //     regions: {
+  //       Київська: ["Боярка", "Фастів"],
+  //       Львівська: ["Львів", "Самбір"],
+  //     },
+  //     offices: {
+  //       Боярка: ["Відділення 101", "Поштомат 102"],
+  //       Фастів: ["Відділення 103"],
+  //       Львів: ["Відділення 104"],
+  //       Самбір: ["Відділення 105"],
+  //     },
+  //   },
+  // };
+  const NP_API_KEY = "ab9b947cee41978ddd4facd307160b07";
   const form = document.getElementById("order-form");
 
-  const deliveryData = {
-    "nova-poshta": {
-      regions: {
-        Київська: ["Боярка", "Вишневе"],
-        Львівська: ["Львів", "Дрогобич"],
-      },
-      offices: {
-        Боярка: ["Відділення №1", "Відділення №2"],
-        Вишневе: ["Відділення №1"],
-        Львів: ["Відділення №1", "Поштомат №3"],
-        Дрогобич: ["Відділення №1"],
-      },
-    },
-    "ukr-poshta": {
-      regions: {
-        Київська: ["Боярка", "Фастів"],
-        Львівська: ["Львів", "Самбір"],
-      },
-      offices: {
-        Боярка: ["Відділення 101", "Поштомат 102"],
-        Фастів: ["Відділення 103"],
-        Львів: ["Відділення 104"],
-        Самбір: ["Відділення 105"],
-      },
-    },
-  };
+  async function fetchRegions() {
+    const res = await fetch("https://api.novaposhta.ua/v2.0/json/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        apiLey: NP_API_KEY,
+        modelName: "Address",
+        calledMethod: "getAreas",
+      }),
+    });
+    const data = await res.json();
+    return data.data.map((area) => area.Description);
+  }
+  async function fetchCities(areaName) {
+    const res = await fetch("https://api.novaposhta.ua/v2.0/json/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        apiKey: NP_API_KEY,
+        modelName: "Address",
+        calledMethod: "getCities",
+      }),
+    });
+    const data = await res.json();
+    return data.data
+      .filter((city) => city.AreaDescription === areaName)
+      .map((city) => city.Description);
+  }
+  async function fetchWarehouses(cityName) {
+    const res = await fetch("https://api.novaposhta.ua/v2.0/json/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        apiKey: NP_API_KEY,
+        modelName: "AddressGeneral",
+        calledMethod: "getWarehouses",
+        methodProperties: { CityName: cityName },
+      }),
+    });
+    const data = await res.json();
+    return data.data.map((w) => w.Description);
+  }
 
   // ===== Заповнення областей при виборі служби доставки =====
-  form.delivery.addEventListener("change", () => {
-    const method = form.delivery.value;
-    const regions = Object.keys(deliveryData[method].regions);
-
-    form.region.innerHTML = `<option value="">Оберіть область</option>`;
-    regions.forEach((region) => {
-      const opt = document.createElement("option");
-      opt.value = region;
-      opt.textContent = region;
-      form.region.appendChild(opt);
-    });
-
-    form.city.innerHTML = `<option value="">Оберіть населений пункт</option>`;
-    form.office.innerHTML = `<option value="">Оберіть відділення</option>`;
+  form.delivery.addEventListener("change", async () => {
+    if (form.delivery.value === "nova-poshta") {
+      const regions = await fetchRegions();
+      form.region.innerHTML = `<option value="">Оберіть область</option>`;
+      regions.forEach((region) => {
+        const opt = document.createElement("option");
+        opt.value = region;
+        opt.textContent = region;
+        form.region.appendChild(opt);
+      });
+      form.city.innerHTML = `<option value="">Оберіть населений пункт</option>`;
+      form.office.innerHTML = `<option value="">Оберіть відділення</option>`;
+    }
   });
 
   // ===== Заповнення міст при виборі області =====
-  form.region.addEventListener("change", () => {
-    const method = form.delivery.value;
-    const cities = deliveryData[method].regions[form.region.value];
-
+  form.region.addEventListener("change", async () => {
+    const cities = await fetchCities(form.region.value);
     form.city.innerHTML = `<option value="">Оберіть населений пункт</option>`;
     cities.forEach((city) => {
       const opt = document.createElement("option");
@@ -192,10 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===== Заповнення відділень при виборі міста =====
-  form.city.addEventListener("change", () => {
-    const method = form.delivery.value;
-    const offices = deliveryData[method].offices[form.city.value];
-
+  form.city.addEventListener("change", async () => {
+    const offices = await fetchWarehouses(form.city.value);
     form.office.innerHTML = `<option value="">Оберіть відділення</option>`;
     offices.forEach((office) => {
       const opt = document.createElement("option");
