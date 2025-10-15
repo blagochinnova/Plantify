@@ -1,268 +1,288 @@
 /* === Загальна сітка сторінки === */
 .cart-page {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: clamp(1rem, 4vw, 2rem);
-    padding: clamp(1rem, 5vw, 2rem);
-    background-color: #fdfdfd;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: clamp(1rem, 4vw, 2rem);
+  padding: clamp(1rem, 5vw, 2rem);
+  background-color: #fdfdfd;
 }
 
 @media (max-width: 768px) {
-    .cart-page {
-        grid-template-columns: 1fr;
-    }
+  .cart-page {
+    grid-template-columns: 1fr;
+  }
 }
 /* ===== Картка товару ===== */
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: clamp(1rem, 4vw, 2rem);
-    padding: 1rem 0;
-    border-bottom: 1px solid #eee;
-    animation: fadeIn 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 2rem);
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  animation: fadeIn 0.3s ease;
 }
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .cart-item img {
-    width: clamp(50px, 10vw, 60px);
-    height: clamp(50px, 10vw, 60px);
-    object-fit: cover;
-    border-radius: 6px;
+  width: clamp(50px, 10vw, 60px);
+  height: clamp(50px, 10vw, 60px);
+  object-fit: cover;
+  border-radius: 6px;
 }
 .cart-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.25rem;
-    flex-grow: 1;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem;
+  flex-grow: 1;
+  flex-wrap: wrap;
 }
 .cart-info h4 {
-    margin: 0;
-    font-size: clamp(0.95rem, 2.5vw, 1rem);
-    font-weight: 500;
-    color: var(--text);
+  margin: 0;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  font-weight: 500;
+  color: var(--text);
 }
 .cart-info p {
-    margin: 0;
-    font-size: clamp(0.8rem, 2vw, 0.85rem);
-    color: var(--muted);
+  margin: 0;
+  font-size: clamp(0.8rem, 2vw, 0.85rem);
+  color: var(--muted);
 }
 .quantity-control {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .quantity-control button {
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    padding: 0.3rem 0.6rem;
-    font-size: clamp(0.8rem, 2vw, 0.85rem);
-    border-radius: 4px;
-    cursor: pointer;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.6rem;
+  font-size: clamp(0.8rem, 2vw, 0.85rem);
+  border-radius: 4px;
+  cursor: pointer;
 }
 .quantity-control span {
-    min-width: 24px;
-    text-align: center;
-    font-weight: bold;
-    color: var(--text);
-    font-size: clamp(0.8rem, 2vw, 0.85rem);
+  min-width: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: var(--text);
+  font-size: clamp(0.8rem, 2vw, 0.85rem);
 }
 .remove-btn {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    color: #999;
-    cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #999;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 .remove-btn:hover {
-   transform: rotate(90deg);
-   color: var(--accent);
+  transform: rotate(90deg);
+  color: var(--accent);
 }
 .card-item.fade-out {
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 .cart-summary {
-margin-top: 2rem;
+  margin-top: 2rem;
 }
 .cart-summary p {
-margin-bottom: 1rem;
-color: var(--muted);
+  margin-bottom: 1rem;
+  color: var(--muted);
 }
 .cart-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 .cart-buttons a,
 .cart-buttons button {
-    padding: clamp(0.6rem, 2vw, 0.75rem);
-    border-radius: 4px;
-    font-size: clamp(0.95rem, 2.5vw, 1rem);
-    text-align: center;
+  padding: clamp(0.6rem, 2vw, 0.75rem);
+  border-radius: 4px;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  text-align: center;
 }
-
 
 .back-btn {
-    background: #f1f1e9;
-    color: var(--accent);
-    text-decoration: none;
-    transition: all 0.3s ease;
+  background: #f1f1e9;
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 .back-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        background-color: var(--accent-2);
-        color: #f1f1e9;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--accent-2);
+  color: #f1f1e9;
 }
 #checkout-btn {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #f1f1e9;
-    border: none;
-    position: sticky;
-    bottom: 1rem;
-    z-index: 10;
-    transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #f1f1e9;
+  border: none;
+  position: sticky;
+  bottom: 1rem;
+  z-index: 10;
+  transition: all 0.3s ease;
 }
 #checkout-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* === Блок замовлення (aside) === */
 .order-summary {
-    position: sticky;
-    top: 1rem;
-    background: #fff;
-    padding: clamp(1rem, 4vw, 1.5rem);
-    border: 1px solid #eee;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 1rem;
+  background: #fff;
+  padding: clamp(1rem, 4vw, 1.5rem);
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .order-summary h4 {
-    margin-bottom: 1rem;
-    font-size: clamp(1rem, 3vw, 1.1rem);
-    color: #333;
+  margin-bottom: 1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
+  color: #333;
 }
 
 .item {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .item img {
-    width: clamp(30px, 8vw, 40px);
-    height: clamp(30px, 8vw, 40px);
-    object-fit: cover;
-    border-radius: 4px;
+  width: clamp(30px, 8vw, 40px);
+  height: clamp(30px, 8vw, 40px);
+  object-fit: cover;
+  border-radius: 4px;
 }
 .item-info div {
-    font-size: clamp(0.85rem, 2vw, 0.9rem);
-    color: var(--muted);
+  font-size: clamp(0.85rem, 2vw, 0.9rem);
+  color: var(--muted);
 }
 .item-info small {
-    font-size: clamp(0.75rem, 2vw, 0.8rem);
-    color: var(--text);
+  font-size: clamp(0.75rem, 2vw, 0.8rem);
+  color: var(--text);
 }
 
-
 .summary-total {
-    margin-top: 1rem;
-    font-weight: bold;
-    font-size: clamp(0.95rem, 2.5vw, 1rem);
-    color: #333;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  color: #333;
 }
 
 /* === Форма доставки === */
 .checkout-form {
-    margin-top: 2rem;
-    padding: clamp(1rem, 5vw, 1.5rem);
-    background: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  margin-top: 2rem;
+  padding: clamp(1rem, 5vw, 1.5rem);
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
-
-.checkout-form input,
-.checkout-form select,
-.checkout-form textarea {
-    width: 100%;
-    margin-bottom: 6px;
-    padding: clamp(0.6rem, 2vw, 0.75rem);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: clamp(0.9rem, 2.5vw, 0.95rem);
-    background: linear-gradient(135deg, #fdfcfb, #f1f1e9);
-    color: var(--text);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
 }
-.checkout-form input:focus,
-.checkout-form select:focus,
-.checkout-form textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 2px rgba(20, 84, 38, 0.2);
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: clamp(0.6rem, 2vw, 0.75rem);
+  font-size: clamp(0.9rem, 2.5vw, 0.95rem);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: linear-gradient(135deg, #fdfcfb, #f1f1e9);
+  color: var(--text);
+  transition: all 0.3s ease;
 }
-.checkout-form select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: linear-gradient(135deg,
-        #fdfcfb,
-        #f1f1e9);
+.form-group label {
+  position: absolute;
+  top: 1rem;
+  left: 0.75rem;
+  font-size: 1rem;
+  color: var(--mutedб #999);
+  pointer-events: none;
+  transition: 0.2s ease;
+  background: transparent;
+  padding: 0 0.25rem;
 }
-.checkout-form option {
-    background-color: #fff;
-    color: var(--text);
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label,
+.form-group select:focus + label,
+.form-group select:valid + label {
+  top: -0.5rem;
+  left: 0.6rem;
+  font-size: 0.75rem;
+  color: var(--accent);
 }
-.checkout-form label {
-    font-weight: 600;
-    color: var(--accent);
-    font-size: clamp(0.9rem, 2.5vw, 1rem);
-    margin-bottom: 0.25rem;
-    display: block;
+/* .form-group input:hover + label,
+.form-group select:hover + label,
+.form-group textarea:hover + label {
+  color: var(--accent);
+} */
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
 }
-
-
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: linear-gradient(135deg, #fdfcfb, #f1f1e9);
+}
+.form-group option {
+  color: var(--text);
+  background-color: #fff;
+  color: var(--text);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
 
 .checkout-form button[type="submit"] {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #f1f1e9;
-    padding: clamp(0.6rem, 2vw, 0.75rem);
-    border: none;
-    border-radius: 4px;
-    width: 100%;
-    font-size: clamp(0.95rem, 2.5vw, 1rem);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #f1f1e9;
+  padding: clamp(0.6rem, 2vw, 0.75rem);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  font-size: clamp(0.95rem, 2.5vw, 1rem);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.checkout-form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

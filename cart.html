@@ -1,70 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ваш кошик | Plantify</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/variables.css">
-    <link rel="stylesheet" href="./assets/css/header-default.css">
-    <link rel="stylesheet" href="./assets/css/cart.css">
-    <link rel="stylesheet" href="./assets/css/footer.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/header-default.css" />
+    <link rel="stylesheet" href="./assets/css/cart.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+  </head>
+  <body>
     <main class="cart-page">
-        <section class="cart-section">
-            <h2>Ваш кошик</h2>
-            <div class="cart-items"></div>
-            <div class="cart-summary">
-                <p>Загальна сума: <span id="cart-total">0 грн</span></p>
-                <div class="cart-buttons">
-                    <a href="catalog.html" class="back-btn">Повернутися до покупок</a>
-                    <button id="checkout-btn">Оформити замовлення</button>
-                </div>
-            </div>
-        </section>
-        <aside class="order-summary">
-            <h4>Ваше замовлення</h4>
-            <div class="summary-items"></div>
-            <div class="summary-total">
-                <strong>Сума:</strong> <span id="summary-total">0 грн</span>
-            </div>
-        </aside>
+      <section class="cart-section">
+        <h2>Ваш кошик</h2>
+        <div class="cart-items"></div>
+        <div class="cart-summary">
+          <p>Загальна сума: <span id="cart-total">0 грн</span></p>
+          <div class="cart-buttons">
+            <a href="catalog.html" class="back-btn">Повернутися до покупок</a>
+            <button id="checkout-btn">Оформити замовлення</button>
+          </div>
+        </div>
+      </section>
+      <aside class="order-summary">
+        <h4>Ваше замовлення</h4>
+        <div class="summary-items"></div>
+        <div class="summary-total">
+          <strong>Сума:</strong> <span id="summary-total">0 грн</span>
+        </div>
+      </aside>
 
-    
-        <section class="checkout-form hidden">
-            <h3>Оформлення замовлення</h3>
-            <form id="order-form">
-                <input type="text" name="surname" placeholder="Прізвище *" required />
-                <input type="text" name="name" placeholder="Ім’я *" required />
-                <input type="text" name="patronymic" placeholder="По батькові" />
-                <input type="tel" name="phone" placeholder="Телефон *" required />
-                <input type="email" name="email" placeholder="Email (необов’язково)" />
-        
-                <select name="delivery" id="delivery-method" required>
-                    <option value="">Оберіть службу доставки</option>
-                    <option value="nova-poshta">Нова Пошта</option>
-                    <option value="ukr-poshta">Укрпошта</option>
-                </select>
-        
-                <select name="region" id="region-select" required>
-                    <option value="">Оберіть область</option>
-                </select>
-        
-                <select name="city" id="city-select" required>
-                    <option value="">Оберіть населений пункт</option>
-                </select>
-        
-                <select name="office" id="office-select" required>
-                    <option value="">Оберіть відділення</option>
-                </select>
-        
-                <textarea name="comment" placeholder="Коментар до замовлення"></textarea>
-                <button type="submit">Оформити замовлення</button>
-            </form>
-        </section>
+      <section class="checkout-form hidden">
+        <h3>Оформлення замовлення</h3>
+        <form id="order-form">
+          <div class="form-group">
+            <input
+              type="text"
+              name="surname"
+              id="surname"
+              placeholder=""
+              required
+            />
+            <label for="surname">Прізвище *</label>
+          </div>
+          <div class="form-group">
+            <input type="text" name="name" id="name" placeholder="" required />
+            <label for="name">Ім'я *</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              name="patronymic"
+              id="patronymic"
+              placeholder=""
+            />
+            <label for="patronymic">По батькові</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" id="phone" placeholder="" required />
+            <label for="phone">Телефон *</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="email" placeholder="" />
+            <label for="email">Email (необов’язково)</label>
+          </div>
+
+          <select name="delivery" id="delivery-method" required>
+            <option value="">Оберіть службу доставки</option>
+            <option value="nova-poshta">Нова Пошта</option>
+            <option value="ukr-poshta">Укрпошта</option>
+          </select>
+
+          <div class="form-group">
+            <select name="region" id="region-select" required>
+              <option value="">Оберіть область</option>
+            </select>
+            <label for="region-select">Область *</label>
+          </div>
+
+          <div class="form-group">
+            <select name="city" id="city-select" required>
+              <option value="">Оберіть населений пункт</option>
+            </select>
+            <label for="city-select">Населений пункт *</label>
+          </div>
+
+          <div class="form-group">
+            <select name="office" id="office-select" required>
+              <option value="">Оберіть відділення</option>
+            </select>
+            <label for="office-select">Відділення *</label>
+          </div>
+
+          <textarea name="comment" placeholder=""></textarea>
+          <label for="comment">Коментар до замовлення</label>
+          <button type="submit">Оформити замовлення</button>
+        </form>
+      </section>
     </main>
     <script type="module" src="./assets/js/cart.js"></script>
-</body>
+  </body>
 </html>
