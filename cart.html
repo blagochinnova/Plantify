@@ -8,6 +8,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/variables.css" />
     <link rel="stylesheet" href="./assets/css/header-default.css" />
@@ -70,35 +73,36 @@
             <label for="email">Email (необов’язково)</label>
           </div>
 
-          <select name="delivery" id="delivery-method" required>
-            <option value="">Оберіть службу доставки</option>
-            <option value="nova-poshta">Нова Пошта</option>
-            <option value="ukr-poshta">Укрпошта</option>
-          </select>
+          <div class="form-group">
+            <select name="delivery" id="delivery-method" required>
+              <option value="">Оберіть службу доставки</option>
+              <option value="nova-poshta">Нова Пошта</option>
+              <option value="ukr-poshta">Укрпошта</option>
+            </select>
+          </div>
 
           <div class="form-group">
             <select name="region" id="region-select" required>
               <option value="">Оберіть область</option>
             </select>
-            <label for="region-select">Область *</label>
           </div>
 
           <div class="form-group">
             <select name="city" id="city-select" required>
               <option value="">Оберіть населений пункт</option>
             </select>
-            <label for="city-select">Населений пункт *</label>
           </div>
 
           <div class="form-group">
             <select name="office" id="office-select" required>
               <option value="">Оберіть відділення</option>
             </select>
-            <label for="office-select">Відділення *</label>
           </div>
 
+         <div class="form-group">
           <textarea name="comment" placeholder=""></textarea>
           <label for="comment">Коментар до замовлення</label>
+         </div>
           <button type="submit">Оформити замовлення</button>
         </form>
       </section>
