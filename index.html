@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="uk" />
+    <title>Квітковий магазин</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/header-home.css" />
+    <link rel="stylesheet" href="./assets/css/home.css" />
+    <link rel="stylesheet" href="./assets/css/category.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+  </head>
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="Content-Language" content="uk" />
-        <title>Квітковий магазин</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-        <link rel="stylesheet" href="./assets/css/main.css">
-        <link rel="stylesheet" href="./assets/css/variables.css">
-        <link rel="stylesheet" href="./assets/css/header-home.css">
-        <link rel="stylesheet" href="./assets/css/home.css">
-        <link rel="stylesheet" href="./assets/css/category.css">
-        <link rel="stylesheet" href="./assets/css/footer.css">
-    </head>
-
-    <body>
-        <header class="site-header"></header>
-        <main>
-            <!-- HERO -->
-            <section class="hero">
-                <div class="hero-text">
-                    <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-                        labore, omnis sit vero quia exercitationem nostrum accusantium quis
-                        consectetur quaerat, dignissimos natus voluptatibus perspiciatis
-                        pariatur blanditiis quas vel amet ex.
-                    </p>
-                </div>
-                <div class="hero-img">
-                    <img src="./assets/img/planthero.png" alt="" />
-                </div>
-            </section>
-            <div class="container">
-                <!-- КАТАЛОГ -->
-                <section class="product-category">
-                    <h2>Асортимент нашого розсадника</h2>
-                    <div class="category-grid">
-                        <!-- Категорії -->
-                        <!--#include file="/components/category-grid.html"-->
-                    </div>
-                </section>
-
-                <section class="prev-catalog" id="catalog">
-                    <h2 class="catalog-title">Популярні товари</h2>
-                    <div class="catalog-grid">
-                        <!-- Тут будуть вставлятись популярні товари або які захочете -->
-                    </div>
-                    <div class="catalog-btn">
-                        <a href="catalog.html">Переглянути каталог</a>
-                    </div>
-                </section>
-                <!-- ПРО НАС -->
-                <section id="about" class="about">
-                    <h2>Про нас</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                        distinctio qui minima mollitia quisquam aliquid facilis eius. Ipsam,
-                        et facere dolores officiis mollitia modi ex officia nostrum ea
-                        exercitationem id.
-                    </p>
-                </section>
+  <body>
+    <div class="content">
+      <header class="site-header"></header>
+      <main>
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-text">
+            <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h1>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Accusamus labore, omnis sit vero quia exercitationem nostrum
+              accusantium quis consectetur quaerat, dignissimos natus
+              voluptatibus perspiciatis pariatur blanditiis quas vel amet ex.
+            </p>
+          </div>
+          <div class="hero-img">
+            <img src="./assets/img/planthero.png" alt="" />
+          </div>
+        </section>
+        <div class="container">
+          <!-- КАТАЛОГ -->
+          <section class="product-category">
+            <h2>Асортимент нашого розсадника</h2>
+            <div class="category-grid">
+              <!-- Категорії -->
+              <!--#include file="/components/category-grid.html"-->
             </div>
-        </main>
+          </section>
 
-        <footer class="site-footer"></footer>
-
-    </body>
-    <script type="module" src="./assets/js/main.js"></script>
+          <section class="prev-catalog" id="catalog">
+            <h2 class="catalog-title">Популярні товари</h2>
+            <div class="catalog-grid">
+              <!-- Тут будуть вставлятись популярні товари або які захочете -->
+            </div>
+            <div class="catalog-btn">
+              <a href="catalog.html">Переглянути каталог</a>
+            </div>
+          </section>
+          <!-- ПРО НАС -->
+          <section id="about" class="about">
+            <h2>Про нас</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+              distinctio qui minima mollitia quisquam aliquid facilis eius.
+              Ipsam, et facere dolores officiis mollitia modi ex officia nostrum
+              ea exercitationem id.
+            </p>
+          </section>
+        </div>
+      </main>
+    </div>
+    <footer class="site-footer"></footer>
+  </body>
+  <script type="module" src="./assets/js/main.js"></script>
 </html>
