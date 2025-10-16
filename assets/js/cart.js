@@ -158,30 +158,38 @@ document.addEventListener("DOMContentLoaded", () => {
   // };
   const NP_API_KEY = "ab9b947cee41978ddd4facd307160b07";
   const form = document.getElementById("order-form");
+  const deliverySection = document.querySelector(".delivery-details");
+
+  const regionGroup = document.querySelector(".region-group");
+  const cityGroup = document.querySelector(".city-group");
+  const officeGroup = document.querySelector(".office-group");
 
   // ==== Ініціалізація Choices.js для селектів ====
   const deliverySelect = new Choices("#delivery-method", {
     searchEnabled: false,
   });
-  let regionSelect = new Choices("#region-select", {
+  const regionSelect = new Choices("#region-select", {
     searchEnabled: true,
     shouldSort: false,
   });
-  let citySelect = new Choices("#city-select", {
+  const citySelect = new Choices("#city-select", {
     searchEnabled: true,
     shouldSort: false,
   });
-  let officeSelect = new Choices("#office-select", {
+  const officeSelect = new Choices("#office-select", {
     searchEnabled: true,
     shouldSort: false,
   });
+  function scrollToElement(el) {
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 
   async function fetchRegions() {
     const res = await fetch("https://api.novaposhta.ua/v2.0/json/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        apiLey: NP_API_KEY,
+        apiKey: NP_API_KEY,
         modelName: "Address",
         calledMethod: "getAreas",
       }),
@@ -218,8 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = await res.json();
     return data.data.map((w) => w.Description);
   }
-
-  // ===== Заповнення областей при виборі служби доставки =====
+  // ===== Покрокове заповнення =====
   form.delivery.addEventListener("change", async () => {
     if (form.delivery.value === "nova-poshta") {
       const regions = await fetchRegions();
@@ -230,13 +237,13 @@ document.addEventListener("DOMContentLoaded", () => {
         "label",
         true
       );
-      citySelect.clearStore();
-      officeSelect.clearStore();
+      regionGroup.classList.add("region-visible");
+      cityGroup.classList.remove("city-visible");
+      officeGroup.classList.remove("office-visible");
     }
   });
 
-  // ===== Заповнення міст при виборі області =====
-  form.region.addEventListener("change", async (e) => {
+  regionSelect.passedElement.element.addEventListener("change", async (e) => {
     const cities = await fetchCities(e.target.value);
     citySelect.clearStore();
     citySelect.setChoices(
@@ -245,11 +252,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "label",
       true
     );
-    officeSelect.clearStore();
+    cityGroup.classList.add("city-visible");
+    officeGroup.classList.remove("office-visible");
   });
 
-  // ===== Заповнення відділень при виборі міста =====
-  form.city.addEventListener("change", async (e) => {
+  citySelect.passedElement.element.addEventListener("change", async (e) => {
     const offices = await fetchWarehouses(e.target.value);
     officeSelect.clearStore();
     officeSelect.setChoices(
@@ -258,8 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
       "label",
       true
     );
+    officeGroup.classList.add("office-visible");
   });
-
   // ===== Обробка форми замовлення =====
   form.addEventListener("submit", (e) => {
     e.preventDefault();

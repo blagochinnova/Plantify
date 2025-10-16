@@ -88,32 +88,42 @@
               <input type="email" name="email" id="email" placeholder="" />
               <label for="email">Email (необов’язково)</label>
             </div>
-
-            <div class="form-group">
-              <select name="delivery" id="delivery-method" required>
-                <option value="">Оберіть службу доставки</option>
-                <option value="nova-poshta">Нова Пошта</option>
-                <option value="ukr-poshta">Укрпошта</option>
-              </select>
+            <div class="delivery-section">
+              <h3 class="section-title">Дані доставки</h3>
+            
+              <div class="choices-group">
+                <label for="delivery-method">Служба доставки</label>
+                <select name="delivery" id="delivery-method" required>
+                  <option value="">Оберіть службу доставки</option>
+                  <option value="nova-poshta">Нова Пошта</option>
+                  <option value="ukr-poshta">Укрпошта</option>
+                </select>
+              </div>
+            
+              <div class="delivery-details active">
+                <div class="choices-group region-group">
+                  <label for="region-select">Область</label>
+                  <select name="region" id="region-select" required>
+                    <option value="">Оберіть область</option>
+                  </select>
+                </div>
+            
+                <div class="choices-group city-group">
+                  <label for="city-select">Населений пункт</label>
+                  <select name="city" id="city-select" required>
+                    <option value="">Оберіть населений пункт</option>
+                  </select>
+                </div>
+            
+                <div class="choices-group office-group">
+                  <label for="office-select">Відділення</label>
+                  <select name="office" id="office-select" required>
+                    <option value="">Оберіть відділення</option>
+                  </select>
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <select name="region" id="region-select" required>
-                <option value="">Оберіть область</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <select name="city" id="city-select" required>
-                <option value="">Оберіть населений пункт</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <select name="office" id="office-select" required>
-                <option value="">Оберіть відділення</option>
-              </select>
-            </div>
 
             <div class="form-group">
               <textarea name="comment" placeholder=""></textarea>
