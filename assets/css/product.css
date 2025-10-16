@@ -1,212 +1,213 @@
 /* ===== PRODUCT PAGE ===== */
 .product-page {
-    display: flex;
-    flex-direction: column;
-    padding: clamp(1rem, 5vw, 2rem);
-    gap: clamp(1rem, 4vw, 2rem);
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 5vw, 2rem);
+  gap: clamp(1rem, 4vw, 2rem);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 /* ===== BACK BUTTON ===== */
 .back-button-wrapper {
-    margin: clamp(1rem, 4vw, 1.5rem) 0 clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 1.5rem);
+  margin: clamp(1rem, 4vw, 1.5rem) 0 clamp(0.5rem, 2vw, 1rem)
+    clamp(1rem, 4vw, 1.5rem);
 }
 
 .back-to-catalog-top {
-    display: inline-flex;
-    align-items: center;
-    padding: clamp(6px, 2vw, 12px) clamp(10px, 4vw, 16px);
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #f1f1e9;
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: clamp(0.9rem, 4vw, 1rem);
-    transition: all 0.3s ease;
-    text-align: center;
-    max-width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  padding: clamp(6px, 2vw, 12px) clamp(10px, 4vw, 16px);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #f1f1e9;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  transition: all 0.3s ease;
+  text-align: center;
+  max-width: fit-content;
 }
 
 .back-to-catalog-top:hover {
-    filter: brightness(1.05);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }
 
 .back-to-catalog-top i {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 /* ===== MAIN PRODUCT BLOCK =====  */
 .product-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(1rem, 4vw, 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 4vw, 2rem);
 }
 
 .product-image-block img,
 #product-image {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
-    object-fit: cover;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 #product-image {
-    max-width: 400px;
-    height: clamp(300px, 50vw, 500px);
+  max-width: 400px;
+  height: clamp(300px, 50vw, 500px);
 }
 
 #product-title {
-    color: var(--accent);
-    font-size: clamp(1.2rem, 5vw, 2rem);
+  color: var(--text);
+  font-size: clamp(1.2rem, 5vw, 2rem);
 }
 
 /* Карусель мініатюр */
 .image-carousel {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .carousel-thumbs {
-    display: flex;
-    gap: 10px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel-thumb {
-    width: clamp(50px, 15vw, 60px);
-    height: clamp(50px, 15vw, 60px);
-    object-fit: cover;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    scroll-snap-align: start;
+  width: clamp(50px, 15vw, 60px);
+  height: clamp(50px, 15vw, 60px);
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  scroll-snap-align: start;
 }
 
 .carousel-thumb:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .carousel-prev,
 .carousel-next {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #f1f1e9;
-    border: none;
-    padding: clamp(0.5rem, 2vw, 1rem);
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    cursor: pointer;
-    border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #f1f1e9;
+  border: none;
+  padding: clamp(0.5rem, 2vw, 1rem);
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .product-info-block {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
 
 .quantity-control {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .quantity-control button {
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #f1f1e9;
-    border: none;
-    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 1.5rem);
-    font-size: clamp(1rem, 4vw, 1.2rem);
-    cursor: pointer;
-    border-radius: 4px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #f1f1e9;
+  border: none;
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 1.5rem);
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 #add-to-cart {
-    padding: clamp(0.75rem, 3vw, 1.5rem);
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    border: none;
-    color: #f1f1e9;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size:clamp(1rem, 4vw, 1.2rem);
-    width: 100%;
-    text-align: center;
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #f1f1e9;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  width: 100%;
+  text-align: center;
 }
 
 .product-description {
-    padding: clamp(1rem, 5vw, 1.5rem);
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  padding: clamp(1rem, 5vw, 1.5rem);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
 }
 
 /* Модальне вікно для Товвар додано в кошик */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(20, 84, 38, 0.6);
-    /* зелений прозорий фон */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 84, 38, 0.6);
+  /* зелений прозорий фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
 .modal-content {
-    background: #fdfcfb;
-    padding: clamp(1rem, 5vw, 2rem);
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    font-size: clamp(1rem, 4vw, 1.125rem);
-    width: 90%;
-    max-width: 400px;
+  background: #fdfcfb;
+  padding: clamp(1rem, 5vw, 2rem);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: clamp(1rem, 4vw, 1.125rem);
+  width: 90%;
+  max-width: 400px;
 }
 
 .modal.hidden {
-    display: none;
+  display: none;
 }
 
 #close-modal {
-    margin-top: 16px;
-    padding: 8px 16px;
-    background: #145426;
-    color: #f1f1e9;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: #145426;
+  color: #f1f1e9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .modal-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
 }
 
 .modal-buttons button {
-    padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 20px);
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    color: #f1f1e9;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: clamp(0.95rem, 3vw, 1rem);
-    transition: all 0.3s ease;
+  padding: clamp(8px, 2vw, 12px) clamp(16px, 4vw, 20px);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #f1f1e9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: clamp(0.95rem, 3vw, 1rem);
+  transition: all 0.3s ease;
 }
 
 .modal-buttons button:hover {
-    filter: brightness(1.05);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
 }

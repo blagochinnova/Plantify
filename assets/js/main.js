@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(headerPath)
     .then((res) => res.text())
     .then((html) => {
-      document.querySelector(".site-header").innerHTML = html;
+      document.body.insertAdjacentHTML("afterbegin", html);
       updateCartCount();
 
       const burger = document.querySelector(".burger");

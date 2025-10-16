@@ -63,6 +63,7 @@ document.getElementById("product-form").addEventListener("submit", (e) => {
     localStorage.setItem("products", JSON.stringify(productList));
     alert("✅ Товар додано!");
     form.reset();
+    renderEditableList();
   };
 
   reader.readAsDataURL(file);

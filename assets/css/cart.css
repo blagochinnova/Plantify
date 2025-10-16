@@ -7,7 +7,7 @@
   background-color: #fdfdfd;
 }
 .cart-page h2 {
-  color: var(--accent);
+  color: var(--text);
 }
 
 @media (max-width: 768px) {
@@ -114,7 +114,7 @@
 }
 .cart-summary p {
   margin-bottom: 1rem;
-  color: var(--muted);
+  color: var(--text);
 }
 .cart-buttons {
   display: flex;
@@ -170,7 +170,7 @@
 .order-summary h4 {
   margin-bottom: 1rem;
   font-size: clamp(1rem, 3vw, 1.1rem);
-  color: #333;
+  color: var(--text);
 }
 
 .item {
@@ -199,7 +199,7 @@
   margin-top: 1rem;
   font-weight: bold;
   font-size: clamp(0.95rem, 2.5vw, 1rem);
-  color: #333;
+  color: var(--text);
 }
 
 /* === Форма доставки === */
