@@ -165,6 +165,7 @@
   border: 1px solid #eee;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 10000;
 }
 
 .order-summary h4 {
@@ -224,7 +225,10 @@
 .form-group,
 .choices-group {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+.form-group {
+  z-index: 1;
 }
 
 /* === Поля вводу === */
@@ -260,15 +264,23 @@
   pointer-events: none;
 }
 
-.form-group input:focus+label,
-.form-group input:not(:placeholder-shown)+label,
-.form-group textarea:focus+label,
-.form-group textarea:not(:placeholder-shown)+label {
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
   top: -0.6rem;
   left: 0.75rem;
   font-size: 0.75rem;
   color: var(--accent);
   border-radius: 5px;
+}
+.delivery-section,
+.delivery-details,
+.choices-group {
+  position: static !important;
+  z-index: auto !important;
+  transform: none !important;
+  overflow: visible !important;
 }
 
 /* === Текстова область === */
@@ -278,6 +290,13 @@
 }
 
 /* === Choices.js поля === */
+.choices {
+  position: relative;
+  z-index: 1;
+}
+.choices.is-open {
+  z-index: 999999; /* відкритий селект піднімається поверх інших */
+}
 .choices__inner {
   background: linear-gradient(135deg, #fdfcfb, #f1f1e9);
   border: 1px solid var(--border);
@@ -293,11 +312,20 @@
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
 }
 
-.choices__list--dropdown {
-  max-height: 200px;
-  /* прокрутка */
-  overflow-y: auto;
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto !important;
+  background: #fff;
+  border: 1px solid var(--border);
   border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000000 !important;
 }
 .choices__item--choice {
   padding: 8px 12px;
@@ -307,6 +335,11 @@
   background-color: var(--accent);
   color: #fff;
 }
+.choices[data-type*="select-one"].is-open .choices__list--dropdown {
+  top: 100% !important; /* відкривати вниз */
+  bottom: auto !important;
+}
+
 /* === Анімація появи блоків доставки === */
 .delivery-details .choices-group {
   opacity: 0;
@@ -314,7 +347,7 @@
   transition: all 0.4s ease;
   pointer-events: none;
   height: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .delivery-details.active .choices-group.region-visible,

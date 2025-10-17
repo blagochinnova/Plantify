@@ -8,10 +8,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
-    />
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
     <link rel="stylesheet" href="./assets/css/main.css" />
@@ -19,6 +15,10 @@
     <link rel="stylesheet" href="./assets/css/header-default.css" />
     <link rel="stylesheet" href="./assets/css/cart.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+    />
   </head>
   <body>
     <div class="content">
@@ -90,7 +90,7 @@
             </div>
             <div class="delivery-section">
               <h3 class="section-title">Дані доставки</h3>
-            
+
               <div class="choices-group">
                 <label for="delivery-method">Служба доставки</label>
                 <select name="delivery" id="delivery-method" required>
@@ -99,7 +99,7 @@
                   <option value="ukr-poshta">Укрпошта</option>
                 </select>
               </div>
-            
+
               <div class="delivery-details active">
                 <div class="choices-group region-group">
                   <label for="region-select">Область</label>
@@ -107,14 +107,14 @@
                     <option value="">Оберіть область</option>
                   </select>
                 </div>
-            
+
                 <div class="choices-group city-group">
                   <label for="city-select">Населений пункт</label>
                   <select name="city" id="city-select" required>
                     <option value="">Оберіть населений пункт</option>
                   </select>
                 </div>
-            
+
                 <div class="choices-group office-group">
                   <label for="office-select">Відділення</label>
                   <select name="office" id="office-select" required>
@@ -123,7 +123,6 @@
                 </div>
               </div>
             </div>
-
 
             <div class="form-group">
               <textarea name="comment" placeholder=""></textarea>
