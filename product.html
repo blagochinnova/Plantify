@@ -1,63 +1,73 @@
 <!DOCTYPE html>
 <html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Plantify — ваш онлайн-розсадник рослин з широким асортиментом та порадами по догляду."
+    />
+    <meta
+      name="keywords"
+      content="рослини, розсадник, садівництво, догляд за рослинами, онлайн магазин"
+    />
+    <meta name="author" content="blagochinnova" />
+    <title>Сторінка товару | Plantify</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link rel="stylesheet" href="./assets/css/variables.css" />
+    <link rel="stylesheet" href="./assets/css/header-default.css" />
+    <link rel="stylesheet" href="./assets/css/product.css" />
+    <link rel="stylesheet" href="./assets/css/footer.css" />
+  </head>
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-        <link rel="stylesheet" href="./assets/css/main.css">
-        <link rel="stylesheet" href="./assets/css/variables.css">
-        <link rel="stylesheet" href="./assets/css/header-default.css">
-        <link rel="stylesheet" href="./assets/css/product.css">
-        <link rel="stylesheet" href="./assets/css/footer.css">
-    </head>
-
-    <body>
-        <main class="product-page">
-            <div class="back-button-wrapper">
-                <a href="catalog.html" class="back-to-catalog-top">
-                    <i class="fa-solid fa-arrow-left"></i> Повернутися до каталогу
-                </a>
-            </div>
-            <section class="product-main">
-                <div class="product-image-block">
-                    <img id="product-image" alt="" />
-                    <div class="image-carousel">
-                        <button class="carousel-prev">←</button>
-                        <div class="carousel-thumbs"></div>
-                        <button class="carousel-next">→</button>
-                    </div>
-                </div>
-
-                <div class="product-info-block">
-                    <h2 id="product-title"></h2>
-                    <p id="product-state"></p>
-                    <span id="product-price"></span>
-                    <div class="quantity-control">
-                        <button id="decrease">−</button>
-                        <span id="quantity">1</span>
-                        <button id="increase">+</button>
-                    </div>
-                    <button id="add-to-cart">Купити</button>
-                </div>
-            </section>
-            <section class="product-description">
-                <h3>Опис</h3>
-                <p id="product-description"></p>
-            </section>
-        </main>
-        <div id="cart-modal" class="modal hidden">
-            <div class="modal-content">
-                <p>✅ Товар додано в кошик!</p>
-                <div class="modal-buttons">
-                    <button id="go-catalog">Повернутися до каталогу</button>
-                    <button id="go-checkout">Перейти до оплати</button>
-                </div>
-            </div>
+  <body>
+    <main class="product-page">
+      <div class="back-button-wrapper">
+        <a href="catalog.html" class="back-to-catalog-top">
+          <i class="fa-solid fa-arrow-left"></i> Повернутися до каталогу
+        </a>
+      </div>
+      <section class="product-main">
+        <div class="product-image-block">
+          <img id="product-image" alt="" />
+          <div class="image-carousel">
+            <button class="carousel-prev">←</button>
+            <div class="carousel-thumbs"></div>
+            <button class="carousel-next">→</button>
+          </div>
         </div>
 
-        <script type="module" src="./assets/js/product.js"></script>
-    </body>
+        <div class="product-info-block">
+          <h2 id="product-title"></h2>
+          <p id="product-state"></p>
+          <span id="product-price"></span>
+          <div class="quantity-control">
+            <button id="decrease">−</button>
+            <span id="quantity">1</span>
+            <button id="increase">+</button>
+          </div>
+          <button id="add-to-cart">Купити</button>
+        </div>
+      </section>
+      <section class="product-description">
+        <h3>Опис</h3>
+        <p id="product-description"></p>
+      </section>
+    </main>
+    <div id="cart-modal" class="modal hidden">
+      <div class="modal-content">
+        <p>✅ Товар додано в кошик!</p>
+        <div class="modal-buttons">
+          <button id="go-catalog">Повернутися до каталогу</button>
+          <button id="go-checkout">Перейти до оплати</button>
+        </div>
+      </div>
+    </div>
 
+    <script type="module" src="./assets/js/product.js"></script>
+  </body>
 </html>
